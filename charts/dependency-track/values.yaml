@@ -39,9 +39,9 @@ apiServer:
       cpu: "4"
       memory: 5Gi
   persistentVolume:
-    enabled: false
+    enabled: true
     className: ""
-    size: 5Gi
+    size: 8Gi
   extraEnv: []
     # - name: "ALPINE_DATABASE_PASSWORD"
     #   valueFrom:
@@ -114,6 +114,9 @@ frontend:
     repository: dependencytrack/frontend
     tag: ~
     pullPolicy: IfNotPresent
+  env:
+  - name: API_BASE_URL
+    value: ${{vars.DT_BASE_URL}}
   command: []
   args: []
   resources:
