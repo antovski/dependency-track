@@ -37,8 +37,8 @@ that allows organizations to identify and reduce risk in the software supply cha
 | apiServer.initContainers | list | `[]` |  |
 | apiServer.nodeSelector | object | `{}` |  |
 | apiServer.persistentVolume.className | string | `""` |  |
-| apiServer.persistentVolume.enabled | bool | `false` |  |
-| apiServer.persistentVolume.size | string | `"5Gi"` |  |
+| apiServer.persistentVolume.enabled | bool | `true` |  |
+| apiServer.persistentVolume.size | string | `"8Gi"` |  |
 | apiServer.probes.liveness.failureThreshold | int | `3` |  |
 | apiServer.probes.liveness.initialDelaySeconds | int | `10` |  |
 | apiServer.probes.liveness.periodSeconds | int | `15` |  |
@@ -78,6 +78,8 @@ that allows organizations to identify and reduce risk in the software supply cha
 | frontend.apiBaseUrl | string | `""` |  |
 | frontend.args | list | `[]` |  |
 | frontend.command | list | `[]` |  |
+| frontend.env[0].name | string | `"API_BASE_URL"` |  |
+| frontend.env[0].value | string | `"${{vars.DT_BASE_URL}}"` |  |
 | frontend.extraContainers | list | `[]` |  |
 | frontend.extraEnv | list | `[]` |  |
 | frontend.extraEnvFrom | list | `[]` |  |
